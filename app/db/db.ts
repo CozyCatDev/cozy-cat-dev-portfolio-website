@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJrHi7BIqSoIluhbgMdIum8vHmRf8-U44",
-  authDomain: "cozycat-8ed47.firebaseapp.com",
-  projectId: "cozycat-8ed47",
-  storageBucket: "cozycat-8ed47.appspot.com",
-  messagingSenderId: "543780614058",
-  appId: "1:543780614058:web:526d58b076848e6ec8c5d3",
-  measurementId: "G-5DSYEQ7PYE"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
