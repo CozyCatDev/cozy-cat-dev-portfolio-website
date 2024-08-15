@@ -1,0 +1,31 @@
+@use "@partials/variables" as *;
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-weight: $fw-normal;
+    z-index: 999;
+    .nav{
+        padding: $p-navbar;
+        background-color: $bg-navbar;
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: $g-sm;
+            span{
+                font-size: calc($fs-h2 - 0.15rem);
+                font-weight: $fw-semibold;
+                letter-spacing: 3px;
+            }
+        }
+        .wrapper{
+            display: flex;
+            background-color: $bg-navbar;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

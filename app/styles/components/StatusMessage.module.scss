@@ -1,0 +1,13 @@
+@use "@partials/variables" as *;
+.failure-message{
+    padding: 0.5rem;
+    background-color: hsl(0deg 100% 93%);
+    border: 2px solid hsl(0deg 100% 75%);
+    border-radius: $br-modal;
+    font-size: calc($fs-p - 0.35rem);
+}
+.success-message{
+    @extend .failure-message;
+    background-color: hsl(135deg 100% 93%);
+    border: 2px solid hsl(135deg 100% 40%);
+}

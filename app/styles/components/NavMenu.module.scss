@@ -1,0 +1,103 @@
+@use "@partials/variables" as *;
+.links{
+    position: absolute;
+    display: flex;
+    background-color: $bg-navbar;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    font-size: $fs-p;
+    top: -700%;
+    left: 0;
+    right: 0;
+    transition: top 300ms ease-out;
+    z-index: -1;
+    &[data-show-nav="true"]{
+        top: 100%;
+    }
+    .link{
+        width: 100%;
+        position: relative;
+        a{
+            padding: calc($g-lg / 2) 0;
+            display: block;
+            width: 100%;
+            @media (min-width: $bp-lg){
+                padding: 0;
+            }
+        }
+        text-align: center;
+        .email-btn{
+            @media (max-width: $bp-lg){
+                padding: calc($g-lg / 2) 0;
+                background-color: transparent;
+                color: $fc-primary;
+                border: 0;
+                width: 100%;
+                svg{
+                    display: none;
+                }
+            }
+        }
+        &:hover, &:focus{
+            background-color: $clr-primary-hover;
+            border: 0;
+            @media (min-width: $bp-lg){
+                background-color: transparent;
+            }
+        }
+        @media (min-width: $bp-lg){
+            &:not(:last-child){
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -7px;
+                    height: 3px;
+                    background-color: $fc-primary;
+                    transform-origin: 0% 50%;
+                    transform: scaleX(0);
+                    transition: transform 200ms linear;
+                }
+                &:hover::before{
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+.open-nav-btn{
+    cursor: pointer;
+    border: 0;
+    padding: 0.5rem;
+    background-color: transparent;
+    font-size: 2rem;
+    border-radius: $br-btn;
+    &:hover{
+        background-color: $bg-secondary;
+        color: $fc-secondary;
+    }
+}
+@media (min-width: $bp-lg){
+    .open-nav-btn{
+        display: none;
+    }
+    .links{
+        position: static;
+        flex-direction: row;
+        gap: $g-lg;
+        padding: 0;
+        z-index: 0;
+        font-size: calc($fs-p - 0.15rem);
+        .link{
+            padding: 0;
+            .email-btn{
+                svg{
+                    display: block;
+                }
+            }
+        }
+    }
+}

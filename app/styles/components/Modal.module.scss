@@ -1,0 +1,68 @@
+@use "@partials/variables" as *;
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc($fs-p - 0.25rem);
+    padding: calc(0.5rem + 4vw);
+    border: 0;
+    box-shadow: 0 5px 20px 3px hsla(0deg,0%,0%,0.25);
+    height: 70vh;
+    width: 70vw;
+    border-radius: $br-modal;
+    .close-btn{
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: calc($fs-h1 - 0.4rem);
+        border: 0;
+        outline: 0;
+        padding: 0 0.5rem;
+        background-color: transparent;
+        border-radius: 5px;
+        &:hover{
+            color: #fff;
+            background-color: $bg-secondary;
+        }
+    }
+    .heading{
+        font-size: calc($fs-h1 - 0.8rem);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: calc(0.25rem + 1vw);
+        margin-bottom: $g-med;
+    }
+    .disclaimer{
+        text-align: center;
+        font-size: calc($fs-p - 0.5rem);
+        margin-bottom: $g-lg;
+        opacity: 0.8;
+        span{
+            font-weight: $fw-bold;
+        }
+    }
+    .form{
+        display: grid;
+        row-gap: calc($g-lg + 1rem);
+        .form-group{
+            display: grid;
+            row-gap: $g-med;
+            label{
+                font-weight: $fw-semibold;
+            }
+        }
+        input, select, textarea{
+            display: block;
+            max-width: 100%;
+            padding: 0.5rem;
+        }
+        textarea{
+            resize: none;
+        }
+    }
+}

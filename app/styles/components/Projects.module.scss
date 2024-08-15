@@ -1,0 +1,40 @@
+@use "@partials/variables" as *;
+
+.projects{
+    padding-bottom: 5rem;
+    @media (min-width: $bp-lg){
+        padding-bottom: 0;
+    }
+    .wrapper{
+        display: grid;
+        grid-template-areas:
+            "heading"
+            "graphic"
+            "desc"
+            "btn";
+        gap: calc($g-med + 1vw);
+        .btn{
+            width: 75%;
+            margin: 0 auto;
+        }
+        @media (min-width: $bp-lg){
+            grid-template-areas:
+                "heading graphic"
+                "desc graphic"
+                "btn graphic";
+            grid-template-columns: repeat(2, 1fr);
+            .heading{
+                grid-area: heading;
+            }
+            .desc{
+                grid-area: desc;
+                span{
+                    font-weight: $fw-semibold;
+                }
+            }
+            .btn{
+                grid-area: btn;
+            }
+        }
+    }
+}

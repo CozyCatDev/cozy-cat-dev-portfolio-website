@@ -1,0 +1,14 @@
+@use "@partials/variables" as *;
+.cards{
+    grid-area: graphic;
+    position: relative;
+    min-height: 350px;
+    max-width: 80%;
+    transform-style: preserve-3d;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (min-width: $bp-lg){
+        min-height: 450px;
+        width: clamp(20rem, 30vw, 24rem);
+    }
+}

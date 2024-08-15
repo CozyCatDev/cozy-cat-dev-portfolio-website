@@ -1,0 +1,35 @@
+@use "@partials/variables" as *;
+.skills{
+    position: relative;
+    background-image: url("/images/CozyCat-playing.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    @media (min-width: $bp-lg){
+        background-size: contain;
+        background-position: 100% 100%;
+    }
+    .wrapper{
+        display: grid;
+        grid-template-areas:
+            "heading"
+            "graphic"
+            "desc";
+        width: 100%;
+        @media (min-width: $bp-lg){
+            display: grid;
+            grid-template-areas:
+                "graphic heading"
+                "graphic desc";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, auto);
+            place-items: center;
+            .heading{
+                grid-area: heading;
+            }
+            .desc{
+                grid-area: desc;
+            }
+        }
+    }
+}

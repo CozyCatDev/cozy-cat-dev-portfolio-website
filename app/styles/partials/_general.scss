@@ -1,0 +1,124 @@
+@use "variables" as *;
+body{
+    font-family: $ff-primary;
+    font-size: $fs-p;
+    font-weight: $fw-light;
+    color: $fc-primary;
+}
+h1, h2{
+    font-family: $ff-secondary;
+}
+h1{
+    font-size: $fs-h1;
+    > span{
+        font-weight: $fw-bold;
+        letter-spacing: 3px;
+    }
+}
+h2{
+    font-size: $fs-h2;
+}
+p{
+    font-size: $fs-p;
+    line-height: 175%;
+    @media (min-width: $bp-lg){
+        line-height: 150%;
+    }
+}
+a{
+    text-decoration: none;
+}
+nav, section, footer{
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) [content-start] minmax($bp-sm - 15rem, 75vw) [content-end] minmax(1rem, 1fr);
+    grid-template-rows: [content-start] 1fr [content-end];
+    > .wrapper{
+        grid-area: content;
+    }
+}
+section{
+    --slide-factor: 1;
+    min-height: min(720px, 100vh);
+    place-items: center;
+    text-align: center;
+    padding: 5vh 0;
+    > .wrapper{
+        row-gap: $g-med;
+        @media(min-width: $bp-lg){
+            row-gap: max($g-med, 1vw);
+            column-gap: $g-lg;
+        }
+    }
+    @media (min-width: $bp-lg){
+        padding: 0;
+    }
+    &:nth-of-type(3n-2){
+        background-color: $bg-primary;
+        color: $fc-primary;
+    }
+    &:nth-of-type(3n-1){
+        background-color: $bg-secondary;
+        color: $fc-secondary;
+    }
+    &:nth-of-type(3n){
+        background-color: $bg-tertiary;
+        color: $fc-primary;
+    }
+}
+
+.btn{
+    cursor: pointer;
+    display: flex;
+    gap: $g-sm;
+    justify-content: center;
+    align-items: center;
+    padding: $p-btn-med;
+    border: $b-btn-primary;
+    border-radius: $br-btn;
+    font-size: calc($fs-p - min(0.1rem, 0.5vw));
+    @media (min-width: $bp-lg){
+        font-size: $fs-p;
+    }
+    max-height: 3em;
+    text-wrap: nowrap;
+    &--primary{
+        background-color: $bg-btn-primary;
+        color: $fc-secondary;
+        &:hover, &:focus{
+            background-color: $bg-btn-primary-hover;
+            border: $b-btn-primary-hover;
+        }
+    }
+    &--secondary{
+        background-color: $bg-btn-secondary;
+        color: $fc-primary;
+        border: $b-btn-secondary;
+        &:hover, &:focus{
+            background-color: $bg-btn-secondary-hover;
+            border: $b-btn-secondary-hover;
+            color: $fc-secondary;
+        }
+    }
+}
+#intro{
+    .Typewriter{
+        position: absolute;
+        text-align: center;
+        line-height: auto;
+        font-size: calc($fs-p - 0.45rem);
+        letter-spacing: 2px;
+        color: $clr-primary-darken;
+        max-width: 40%;
+        top: 10%;
+        left: 6%;
+        z-index: 4;
+        @media (min-width: $bp-lg){
+            font-size: 1.6vw;
+        }
+    }
+}
+@media (min-width: $bp-lg){
+    .hide-desktop{
+        display: none;
+    }
+}

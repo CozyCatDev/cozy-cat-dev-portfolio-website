@@ -1,0 +1,100 @@
+@use "sass:color";
+@use "utils" as *;
+
+/* colors */
+
+$hue-offset: 180deg;
+$sat-offset: 0%;
+$lightness-offset: -72%;
+
+$lighten-offset: 6%;
+$darken-offset: -70%;
+$darken-hover-offset: -10%;
+
+$hue-primary: 12deg;
+$sat-primary: 95%;
+$lightness-primary: 90%;
+
+$hue-secondary: $hue-primary + $hue-offset;
+$sat-secondary: $sat-primary + $sat-offset;
+$lightness-secondary: $lightness-primary + $lightness-offset;
+
+$clr-primary: hsl($hue-primary $sat-primary $lightness-primary);
+$clr-primary-darken: color.scale($clr-primary, $lightness: -70%);
+$clr-primary-hover: color.scale($clr-primary, $lightness: -20%);
+$clr-primary-hover: hsla($hue-primary ,$sat-primary ,$lightness-primary + $darken-hover-offset, 0.4); /* 12 95 96*/
+$clr-primary-lighten: hsl($hue-primary $sat-primary $lightness-primary + $lighten-offset); /* 12 95 96*/
+$clr-secondary: hsl($hue-secondary $sat-secondary $lightness-secondary);
+$clr-secondary-darken: color.scale($clr-secondary, $lightness: -50%);
+$clr-secondary-hover: $clr-secondary-darken;
+
+/* breakpoints */
+
+$bp-sm: 30rem;
+$bp-med: 48rem;
+$bp-lg: 64rem;
+
+/* font sizes */
+
+$fs-logo: 1.5rem;
+$fs-h1: linearize-font($bp-sm, $bp-lg, 2.25rem, 3.5rem);
+$fs-h2: linearize-font($bp-sm, $bp-lg, 1.5rem, 2rem);
+$fs-p: linearize-font($bp-sm, $bp-lg, 1.25rem, 1.75rem);
+
+/* font families */
+
+$ff-primary: var(--ff-primary);
+$ff-secondary: var(--ff-secondary);
+
+/* font colors */
+
+$fc-primary: $clr-secondary;
+$fc-secondary: color.adjust($clr-secondary, $lightness: 74%);
+
+/* font weights */
+
+$fw-light: 400;
+$fw-normal: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+/* background colors */
+$bg-primary: $clr-primary;
+$bg-secondary: $clr-secondary;
+$bg-tertiary: #fff;
+$bg-btn-primary: $clr-secondary;
+$bg-btn-primary-hover: $clr-secondary-hover;
+$bg-btn-secondary: transparent;
+$bg-btn-secondary-hover: $clr-secondary;
+$bg-navbar: $clr-primary-lighten;
+$bg-footer: $clr-secondary-darken;
+
+/* padding */
+
+$p-btn-xs: 0.25rem;
+$p-btn-sm: 0.5rem 0.75rem;
+$p-btn-med: 0.5rem 1.25rem;
+$p-btn-lg: 0.5rem 1.5rem;
+$p-navbar: 0.75rem 0;
+
+/* gap */
+
+$g-xs: 0.25rem;
+$g-sm: 0.75rem;
+$g-med: 1rem;
+$g-lg: 2rem;
+
+/* border radius */
+
+$br-btn: 0.625rem;
+$br-card: 2rem;
+$br-modal: 0.625rem;
+
+/* border styles */
+
+$b-btn-primary: 2px solid transparent;
+$b-btn-primary-hover: 2px solid $clr-secondary-darken;
+$b-btn-secondary: 2px solid $clr-secondary;
+$b-btn-secondary-hover: 2px solid $clr-secondary;
+$b-card: 3px solid transparent;
+$b-card-hover: 3px solid $clr-secondary;

@@ -1,0 +1,5 @@
+@function linearize-font($bp-min, $bp-max, $fs-min, $fs-max){
+    $slope: ($fs-max - $fs-min) / ($bp-max - $bp-min);
+    $y-intercept: $fs-min - $slope * $bp-min;
+    @return clamp($fs-min, #{$slope * 100}vw + #{$y-intercept}, $fs-max); 
+}

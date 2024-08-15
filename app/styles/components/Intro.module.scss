@@ -1,0 +1,100 @@
+@use "@partials/variables" as *;
+
+.intro{
+    padding-top: calc(4.75rem + 5vh);
+    background-image: url("/images/CozyCat-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    @media (min-width: $bp-lg){
+        padding-top: 5vh;
+        background-image: url("/images/CozyCat-pattern.svg");
+    }
+    .wrapper{
+        display: grid;
+        grid-template-areas:
+            "heading"
+            "graphic"
+            "desc"
+            "btn";
+        @media (min-width: $bp-lg){
+            grid-template-areas:
+                "heading graphic"
+                "desc graphic"
+                "btn graphic";
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
+            align-items: center;
+        }
+        .heading{
+            grid-area: heading;
+        }
+        .desc{
+            grid-area: desc;
+            span{
+                font-weight: $fw-semibold;
+            }
+        }
+        .btn{
+            grid-area: btn;
+            width: 75%;
+            margin: 0 auto;
+        }
+        .img-wrapper{
+            grid-area: graphic;
+            position: relative;
+            max-width: 450px;
+            left: 50%;
+            transform: translateX(-50%);
+            aspect-ratio: 1031 / 926;
+            > img{
+                position: absolute;
+            }
+            @media (min-width: $bp-lg){
+                max-width: 500px;
+            }
+            .cat-left-arm,
+            .cat-right-arm{
+                animation-duration: 1.5s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 0;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .cat-left-arm{
+                z-index: 2;
+                transform-origin: 80% 50%;
+                animation-name: wave-left;
+            }
+            .cat-right-arm{
+                z-index: 1;
+                transform-origin: 55% 50%;
+                animation-name: wave-right;
+            }
+            .cat-main{
+                z-index: 0;
+            }
+            .cat-monitor{
+                z-index: 3;
+            }
+        }
+    }
+}
+
+@keyframes wave-left{
+    0%{
+        transform: rotateZ(5deg);
+    }
+    100%{
+        transform: rotateZ(-5deg);
+    }
+}
+
+@keyframes wave-right{
+    0%{
+        transform: translateY(0.5%) rotateZ(-3deg);
+    }
+    100%{
+        transform: translateY(0.5%) rotateZ(3deg);
+    }
+}
